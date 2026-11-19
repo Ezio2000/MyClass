@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>遗迹守卫战</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@700;900&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!--APP-START-->
+<header class="top">
+  <div class="top-in">
+    <div class="brand"><h1>遗迹守卫战</h1><span class="ver">M1 灰盒原型</span></div>
+    <span class="season-chip" id="seasonChip"></span>
+    <div class="wallet" title="晶石"><span class="gem"></span><span class="num" id="crystals">0</span></div>
+  </div>
+  <nav class="nav" id="nav" aria-label="主导航">
+    <button data-view="home" aria-current="page">出征</button>
+    <button data-view="heroes">英雄</button>
+    <button data-view="summon">召唤</button>
+    <button data-view="dex">图鉴</button>
+    <button data-view="matrix">克制</button>
+    <button data-view="social">社交</button>
+    <button data-view="lab">验证</button>
+  </nav>
+</header>
+<main><div class="wrap" id="view"></div></main>
+<div id="modal" class="modal" hidden></div>
+<div id="toast" class="toast" hidden></div>
+
+<section id="battle" hidden aria-label="战斗">
+  <div class="b-top">
+    <div class="b-stat" title="生命"><span class="ic heart"></span><b id="bLives">20</b></div>
+    <div class="b-stat" title="金币"><span class="ic coin"></span><b id="bGold">0</b></div>
+    <div class="b-stat"><span class="lab">波次</span><b id="bWave">0</b></div>
+    <div class="b-buffs" id="bBuffs"></div>
+    <div class="b-spacer"></div>
+    <button id="bSpeed">1×</button>
+    <button id="bPause">暂停</button>
+    <button id="bSound">音效 开</button>
+    <button id="bExit">撤退</button>
+  </div>
+  <div class="bf-outer">
+    <div class="bf" id="bf">
+      <canvas id="cv"></canvas>
+      <div id="bBanner" class="banner"></div>
+      <div id="bTip" class="btip" hidden></div>
+      <div id="bToast" class="btoast" hidden></div>
+      <div id="bPanel" class="bpanel" hidden></div>
+      <div id="bConfirm" class="confirm" hidden>
+        <div><b>撤退并结束本局？</b><span class="muted small">本局按失败结算，已清理的波次仍计入奖励。</span>
+          <div class="actions" style="justify-content:center"><button class="btn sm" id="bConfirmNo">继续战斗</button><button class="btn sm danger" id="bConfirmYes">撤退</button></div></div>
+      </div>
+      <div id="bEnd" class="bend" hidden></div>
+    </div>
+  </div>
+  <div class="b-bottom">
+    <div class="tray" id="bTray"></div>
+    <div class="b-actions">
+      <div class="dom">
+        <button id="bDomUse">支配头环 <b>×0</b></button>
+        <button id="bDomBuy">购买 <b>240</b></button>
+        <small id="bDomInfo">本局已购 0/2</small>
+      </div>
+      <button id="bNext" class="btn primary">开始第 1 波</button>
+    </div>
+  </div>
+</section>
+
+<script src="js/data.js"></script>
+<script src="js/art.js"></script>
+<script src="js/sfx.js"></script>
+<script src="js/meta.js"></script>
+<script src="js/battle.js"></script>
+<script src="js/ui.js"></script>
+<!--APP-END-->
+</body>
+</html>
